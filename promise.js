@@ -88,5 +88,3 @@ getUser().then((userInfo) => {
     })
 
 });
-
-

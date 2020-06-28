@@ -15,17 +15,25 @@ const getUserComment = (userId) => {
                 { userId: 2,  commentId: 3, comment: 'How are you' },
             ]
             const userComments = res.filter((comment) => comment.userId == userId);
-            resolve(userComments);
+            reject(false);
         }, 1000)
     })
 }
 
 async function getData() {
-    console.log('user alma işlemi başladı');
-    const user = await getUser();
-    console.log('user alındı');
-    console.log('comment alma işlemi başladı');
-    const comment = await getUserComment(user.id);
-    console.log('comment alındı');
-    console.log(comment);
+    try {
+        console.log('user alma işlemi başladı');
+        const user = await getUser();
+        console.log('user alındı');
+        console.log('comment alma işlemi başladı');
+        const comment = await getUserComment(user.id);
+        console.log('comment alındı');
+        console.log(comment);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
+
+getData();
